@@ -1,9 +1,6 @@
 package org.example.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Settings {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "settings_seq")
+    @SequenceGenerator(name = "settings_seq", sequenceName = "settings_seq", allocationSize = 1)
     private Long id;
     private String name;
     private String value;

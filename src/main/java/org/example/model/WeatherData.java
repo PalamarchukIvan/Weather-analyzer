@@ -11,6 +11,8 @@ import lombok.*;
 @Data
 public class WeatherData {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "weather_data_seq")
+    @SequenceGenerator(name = "weather_data_seq", sequenceName = "weather_data_seq", allocationSize = 1)
     private Long id;
     private String observationTime;
     private Double temperature;

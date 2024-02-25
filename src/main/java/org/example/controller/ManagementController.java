@@ -9,12 +9,11 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @AllArgsConstructor
 @RequestMapping(value = "/management", produces = MediaType.APPLICATION_JSON_VALUE)
-public class SettingController {
+public class ManagementController {
     private final LocationsService locationsService;
     private final SettingsService service;
 
@@ -46,6 +45,11 @@ public class SettingController {
     @GetMapping("/settings/{id}")
     public Settings findSettingsById(@PathVariable Long id) {
         return service.findById(id);
+    }
+
+    @GetMapping("/settings/{name}")
+    public Settings findSettingsByName(@PathVariable String name) {
+        return service.findByName(name);
     }
 
     @GetMapping("/settings")

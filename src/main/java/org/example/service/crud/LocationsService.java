@@ -1,6 +1,5 @@
 package org.example.service.crud;
 
-import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.example.model.Location;
@@ -29,6 +28,15 @@ public class LocationsService {
     public List<Location> findAll() {
         return locationRepository.findAll();
     }
+
+    public List<Location> findAllActive() {
+        return locationRepository.findAllByisActiveIsTrue();
+    }
+    public List<Location> findAllActive(Integer limit) {
+        List<Location> allByActiveIsTrue = locationRepository.findAllByisActiveIsTrue();
+        return allByActiveIsTrue.subList(0, allByActiveIsTrue.size() > limit ? limit : allByActiveIsTrue.size());
+    }
+
     public Location update(Location location) {
         boolean exists = locationRepository.findById(location.getId()).isPresent();
         if (exists) {

@@ -17,6 +17,10 @@ public class SettingsService {
         return settingsRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
+    public Settings findByName(String name) {
+        return settingsRepository.findByName(name).orElseThrow(EntityNotFoundException::new);
+    }
+
     public List<Settings> findAll() {
         return settingsRepository.findAll();
     }

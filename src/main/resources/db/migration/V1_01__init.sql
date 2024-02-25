@@ -35,4 +35,6 @@ CREATE TABLE settings(
     value VARCHAR(255)
 );
 
-INSERT INTO settings values (default, 'timeout', '10')
+INSERT INTO settings values
+                         (default, 'timeout', '10'),
+                         (default, 'units', 'm');

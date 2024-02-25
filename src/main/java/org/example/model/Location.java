@@ -16,6 +16,8 @@ import java.util.List;
 @Data
 public class Location {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "location_seq")
+    @SequenceGenerator(name = "location_seq", sequenceName = "location_seq", allocationSize = 1)
     private Long id;
     private String query;
     private boolean isActive;
