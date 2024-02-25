@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 public class WeatherResponse {
     private RequestMetaData request;
     private RequestLocation location;
-    private WeatherData current;
+    private CurrentWeather current;
 }

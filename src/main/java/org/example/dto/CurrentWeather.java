@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Data
-public class WeatherData {
+public class CurrentWeather {
     @JsonProperty("observation_time")
     private String observationTime;
     private Double temperature;
