@@ -11,7 +11,6 @@ import lombok.*;
 @Data
 public class WeatherData {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String observationTime;
     private Double temperature;
