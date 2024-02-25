@@ -30,3 +30,9 @@ springdoc:
     path: /swagger-ui.html # swagger-ui custom path
   api-docs:
     path: /v3/api-docs.yaml
+
+#API
+weather.api:
+  token: 3e3f38adc7cd3182c5cca0a70a33bc2e
+  urls:
+    current: http://api.weatherstack.com/current?query={query}&units={units}
