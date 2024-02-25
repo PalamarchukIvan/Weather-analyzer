@@ -1,0 +1,32 @@
+spring:
+  # Database
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    #    For local usage
+    url: jdbc:postgresql://localhost:5432/weather-analyzer
+    username: postgres
+    password: postgres
+
+  # JPA properties
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+# Logger configuration
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+  level:
+    org.springframework: info
+    org.hibernate: debug
+# Server configuration
+server:
+  port: 8080 #set your port
+# Swagger configuration
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html # swagger-ui custom path
+  api-docs:
+    path: /v3/api-docs.yaml
