@@ -1,4 +1,4 @@
-package org.example.dto;
+package org.example.dto.foreign;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

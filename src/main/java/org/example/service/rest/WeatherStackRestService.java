@@ -2,7 +2,7 @@ package org.example.service.rest;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.dto.WeatherResponse;
+import org.example.dto.foreign.WeatherResponse;
 import org.example.util.UrlResolver;
 import org.example.util.WeatherUrl;
 import org.springframework.http.HttpMethod;

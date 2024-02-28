@@ -13,6 +13,7 @@ CREATE TABLE weather_data (
     id BIGINT PRIMARY KEY DEFAULT nextval('weather_data_seq'),
     observation_time VARCHAR(255),
     temperature DOUBLE PRECISION,
+    nanos BIGINT,
     wind_speed INTEGER,
     wind_degree INTEGER,
     wind_dir VARCHAR(255),

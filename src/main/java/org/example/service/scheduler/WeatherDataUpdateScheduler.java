@@ -1,15 +1,14 @@
 package org.example.service.scheduler;
 
 import jakarta.annotation.PostConstruct;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.example.dto.WeatherResponse;
+import org.example.dto.foreign.WeatherResponse;
 import org.example.mapper.WeatherDataMapper;
 import org.example.model.Location;
 import org.example.model.Settings;
 import org.example.model.WeatherData;
 import org.example.repository.WeatherDataRepository;
-import org.example.service.WeatherDataService;
+import org.example.service.WeatherRestDataService;
 import org.example.service.crud.LocationsService;
 import org.example.service.crud.SettingsService;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -30,10 +29,9 @@ public class WeatherDataUpdateScheduler {
 
     private final SettingsService settingsService;
     private final LocationsService locationsService;
-    private final WeatherDataService weatherDataService;
+    private final WeatherRestDataService weatherDataService;
     private final WeatherDataMapper mapper;
     private final WeatherDataRepository weatherDataRepository;
-
 
     @PostConstruct
     private void init() {
@@ -51,7 +49,8 @@ public class WeatherDataUpdateScheduler {
 
         Settings settingsTimeout = settingsService.findByName("timeout");
         if (Long.parseLong(settingsTimeout.getValue()) != timeout) {
-            // TODO: restart scheduled task with new settings
+            scheduler.shutdown();
+            scheduler.scheduleAtFixedRate(this::fetchDataFromApi, 0, timeout, TimeUnit.SECONDS);
         }
     }
 
