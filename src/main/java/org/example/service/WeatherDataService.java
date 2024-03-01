@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class WeatherRestDataService {
+public class WeatherDataService {
     private final WeatherStackRestService restService;
 
     public WeatherResponse getWeatherData(String query, String units) {

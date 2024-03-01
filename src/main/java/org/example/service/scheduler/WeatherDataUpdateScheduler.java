@@ -8,7 +8,7 @@ import org.example.model.Location;
 import org.example.model.Settings;
 import org.example.model.WeatherData;
 import org.example.repository.WeatherDataRepository;
-import org.example.service.WeatherRestDataService;
+import org.example.service.WeatherDataService;
 import org.example.service.crud.LocationsService;
 import org.example.service.crud.SettingsService;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -29,7 +29,7 @@ public class WeatherDataUpdateScheduler {
 
     private final SettingsService settingsService;
     private final LocationsService locationsService;
-    private final WeatherRestDataService weatherDataService;
+    private final WeatherDataService weatherDataService;
     private final WeatherDataMapper mapper;
     private final WeatherDataRepository weatherDataRepository;
 

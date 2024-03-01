@@ -47,8 +47,8 @@ public class ManagementController {
         return service.findById(id);
     }
 
-    @GetMapping("/settings/{name}")
-    public Settings findSettingsByName(@PathVariable String name) {
+    @GetMapping("/settings/name")
+    public Settings findSettingsByName(@RequestParam String name) {
         return service.findByName(name);
     }
 

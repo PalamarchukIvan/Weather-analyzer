@@ -1,5 +1,6 @@
 package org.example.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,5 +24,6 @@ public class Location {
     private boolean isActive;
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
     @OrderBy("observationTime desc ")
+    @JsonIgnore
     private List<WeatherData> obtainedData;
 }
